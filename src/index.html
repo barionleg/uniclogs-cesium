@@ -7,6 +7,19 @@
   <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
 </head>
 <body>
+$ mkdir data
+$ cd data
+$ wget https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74218/world.200412.3x21600x10800.png
+$ gdal_translate -of GTiff -a_srs EPSG:4326 -a_ullr -180 90 180 -90 world.200412.3x21600x10800.png world.200412.3x21600x10800.tif
+$ gdal2tiles.py world.200412.3x21600x10800.tif tiles -p geodetic --tmscompatible --process=4
+$ cd -
+  
+  $ pip install -r app/requirements.txt
+  $ flask run
+  $ Install npm
+  $ npm update
+  $ npm start
+  localhost:8080
   <div id="cesiumContainer" class="fullsize"></div>
 </body>
 </html>
